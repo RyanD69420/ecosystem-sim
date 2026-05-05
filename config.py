@@ -24,9 +24,10 @@ HERBIVORE_START_ENERGY  = 60
 HERBIVORE_MAX_ENERGY    = 100
 HERBIVORE_MOVE_COST     = 1
 HERBIVORE_EAT_GAIN      = 20
-HERBIVORE_REPRODUCE_AT  = 95    # harder to hit
-HERBIVORE_REPRODUCE_CHANCE = 0.3  # only 30% chance even when energy is high enough
-HERBIVORE_MAX_POP       = 300   # hard cap to prevent runaway booms
+HERBIVORE_REPRODUCE_AT  = 95
+HERBIVORE_REPRODUCE_CHANCE = 0.3
+HERBIVORE_MAX_POP       = 300
+HERBIVORE_CROWD_THRESHOLD = 4   # neighbours within radius-2 before stress kicks in
 HERBIVORE_STARVE_AT     = 0
 
 PREDATOR_START_ENERGY   = 80

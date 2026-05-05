@@ -84,7 +84,7 @@ class Simulation:
         plant_map = {(p.col, p.row): p for p in self.plants if p.alive}
         new_herbs = []
         for h in self.herbivores:
-            h.tick(self.grid, plant_map, self.predators)
+            h.tick(self.grid, plant_map, self.predators, self.herbivores)
             if h.wants_to_reproduce():
                 if len(self.herbivores) + len(new_herbs) < config.HERBIVORE_MAX_POP:
                     baby = h.reproduce()

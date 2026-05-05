@@ -20,16 +20,24 @@ class Predator(Entity):
             self._die()
             return
 
+        # Don't hunt if herbivore population is critically low — let them recover
+        alive_herbs = [h for h in herbivores if h.alive]
+        if len(alive_herbs) < config.PREDATOR_MIN_HUNT_POP:
+            self.energy -= 1  # extra starvation pressure when prey is scarce
+            nc, nr = self._random_move(grid)
+            self._move_to(nc, nr, cost=0)
+            return
+
         # Try to eat adjacent herbivore
-        for h in herbivores:
-            if h.alive and h.col == self.col and h.row == self.row:
+        for h in alive_herbs:
+            if h.col == self.col and h.row == self.row:
                 h._die()
                 self.energy = min(self.energy + config.PREDATOR_EAT_GAIN, config.PREDATOR_MAX_ENERGY)
                 self._reproduce_flag = self.energy >= config.PREDATOR_REPRODUCE_AT
                 return
 
         # Hunt nearest herbivore
-        target = self._nearest(herbivores, radius=8)
+        target = self._nearest(alive_herbs, radius=8)
         if target:
             nc, nr = self._step_toward(grid, target.col, target.row)
         else:

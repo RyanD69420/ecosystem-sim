@@ -11,28 +11,29 @@ CELL_SIZE  = SCREEN_WIDTH // GRID_COLS   # ~12px per cell
 # ─── World Generation ───────────────────────────────────────────────────────
 WATER_RATIO      = 0.12   # fraction of tiles that start as water
 ROCK_RATIO       = 0.08
-INITIAL_PLANTS   = 400
-INITIAL_HERBIVORES = 80
-INITIAL_PREDATORS  = 6
+INITIAL_PLANTS     = 500
+INITIAL_HERBIVORES = 120
+INITIAL_PREDATORS  = 4
 
 # ─── Energy ─────────────────────────────────────────────────────────────────
 PLANT_ENERGY          = 30
 PLANT_SPREAD_CHANCE   = 0.04   # per tick, per plant
 PLANT_REGROW_TICKS    = 15
 
-HERBIVORE_START_ENERGY  = 60
-HERBIVORE_MAX_ENERGY    = 100
+HERBIVORE_START_ENERGY  = 70
+HERBIVORE_MAX_ENERGY    = 120
 HERBIVORE_MOVE_COST     = 1
-HERBIVORE_EAT_GAIN      = 25
-HERBIVORE_REPRODUCE_AT  = 65
+HERBIVORE_EAT_GAIN      = 35
+HERBIVORE_REPRODUCE_AT  = 90
 HERBIVORE_STARVE_AT     = 0
 
-PREDATOR_START_ENERGY   = 60
-PREDATOR_MAX_ENERGY     = 120
-PREDATOR_MOVE_COST      = 3
-PREDATOR_EAT_GAIN       = 40
-PREDATOR_REPRODUCE_AT   = 100
+PREDATOR_START_ENERGY   = 50
+PREDATOR_MAX_ENERGY     = 100
+PREDATOR_MOVE_COST      = 4
+PREDATOR_EAT_GAIN       = 35
+PREDATOR_REPRODUCE_AT   = 90
 PREDATOR_STARVE_AT      = 0
+PREDATOR_MIN_HUNT_POP   = 8    # won't hunt if fewer herbivores than this
 
 # ─── Colonizers (Phase 2) ───────────────────────────────────────────────────
 COLONIZER_START_COUNT   = 5

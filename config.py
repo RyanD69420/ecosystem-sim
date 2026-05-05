@@ -11,27 +11,27 @@ CELL_SIZE  = SCREEN_WIDTH // GRID_COLS   # ~12px per cell
 # ─── World Generation ───────────────────────────────────────────────────────
 WATER_RATIO      = 0.12   # fraction of tiles that start as water
 ROCK_RATIO       = 0.08
-INITIAL_PLANTS   = 200
-INITIAL_HERBIVORES = 40
-INITIAL_PREDATORS  = 10
+INITIAL_PLANTS   = 400
+INITIAL_HERBIVORES = 80
+INITIAL_PREDATORS  = 6
 
 # ─── Energy ─────────────────────────────────────────────────────────────────
 PLANT_ENERGY          = 30
-PLANT_SPREAD_CHANCE   = 0.02   # per tick, per plant
+PLANT_SPREAD_CHANCE   = 0.04   # per tick, per plant
 PLANT_REGROW_TICKS    = 15
 
 HERBIVORE_START_ENERGY  = 60
 HERBIVORE_MAX_ENERGY    = 100
 HERBIVORE_MOVE_COST     = 1
 HERBIVORE_EAT_GAIN      = 25
-HERBIVORE_REPRODUCE_AT  = 80
+HERBIVORE_REPRODUCE_AT  = 65
 HERBIVORE_STARVE_AT     = 0
 
-PREDATOR_START_ENERGY   = 80
-PREDATOR_MAX_ENERGY     = 150
-PREDATOR_MOVE_COST      = 2
-PREDATOR_EAT_GAIN       = 50
-PREDATOR_REPRODUCE_AT   = 120
+PREDATOR_START_ENERGY   = 60
+PREDATOR_MAX_ENERGY     = 120
+PREDATOR_MOVE_COST      = 3
+PREDATOR_EAT_GAIN       = 40
+PREDATOR_REPRODUCE_AT   = 100
 PREDATOR_STARVE_AT      = 0
 
 # ─── Colonizers (Phase 2) ───────────────────────────────────────────────────

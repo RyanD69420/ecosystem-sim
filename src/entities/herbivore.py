@@ -27,7 +27,10 @@ class Herbivore(Entity):
                 gained = plant.be_eaten()
                 self.energy = min(self.energy + gained, config.HERBIVORE_MAX_ENERGY)
                 del plant_map[(self.col, self.row)]
-                self._reproduce_flag = self.energy >= config.HERBIVORE_REPRODUCE_AT
+                self._reproduce_flag = (
+                    self.energy >= config.HERBIVORE_REPRODUCE_AT and
+                    random.random() < config.HERBIVORE_REPRODUCE_CHANCE
+                )
                 return
 
         # Flee if predator nearby
@@ -48,7 +51,10 @@ class Herbivore(Entity):
                 nc, nr = self._random_move(grid)
 
         self._move_to(nc, nr, cost=config.HERBIVORE_MOVE_COST)
-        self._reproduce_flag = self.energy >= config.HERBIVORE_REPRODUCE_AT
+        self._reproduce_flag = (
+            self.energy >= config.HERBIVORE_REPRODUCE_AT and
+            random.random() < config.HERBIVORE_REPRODUCE_CHANCE
+        )
 
     def wants_to_reproduce(self) -> bool:
         return self._reproduce_flag and self.alive

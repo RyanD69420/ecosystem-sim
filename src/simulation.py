@@ -86,9 +86,10 @@ class Simulation:
         for h in self.herbivores:
             h.tick(self.grid, plant_map, self.predators)
             if h.wants_to_reproduce():
-                baby = h.reproduce()
-                if baby:
-                    new_herbs.append(baby)
+                if len(self.herbivores) + len(new_herbs) < config.HERBIVORE_MAX_POP:
+                    baby = h.reproduce()
+                    if baby:
+                        new_herbs.append(baby)
         self.herbivores = [h for h in self.herbivores if h.alive]
         self.herbivores.extend(new_herbs)
 

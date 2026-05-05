@@ -39,6 +39,13 @@ def main():
                     paused = not paused
                 if event.key == pygame.K_q:
                     running = False
+                if event.key == pygame.K_r:
+                    grid = Grid(config.GRID_COLS, config.GRID_ROWS)
+                    simulation = Simulation(grid)
+                    renderer = Renderer(screen, grid)
+                    hud = HUD(screen, simulation)
+                    simulation.seed_world()
+                    paused = False
                 # Phase 2: spawn colonizers with 'C'
                 if event.key == pygame.K_c:
                     simulation.spawn_colonizers()

@@ -53,6 +53,7 @@ class HUD:
         entries += [
             (None,             None,           False),
             ("[SPC] Pause" if not paused else "[SPC] Resume", (160, 160, 160), False),
+            ("[R]   Restart",   (160, 160, 160), False),
             ("[Q]   Quit",     (160, 160, 160), False),
         ]
 

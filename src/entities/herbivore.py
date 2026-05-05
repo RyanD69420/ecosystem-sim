@@ -35,10 +35,15 @@ class Herbivore(Entity):
         if threat:
             nc, nr = self._flee(grid, threat)
         else:
-            # Seek food
-            food = self._nearest_key(plant_map, radius=6)
-            if food:
-                nc, nr = self._step_toward(grid, *food)
+            # Only actively seek food when hungry — otherwise wander randomly.
+            # This stops herbivores laser-focusing on every plant immediately.
+            hungry = self.energy < config.HERBIVORE_MAX_ENERGY * 0.6
+            if hungry:
+                food = self._nearest_key(plant_map, radius=4)
+                if food:
+                    nc, nr = self._step_toward(grid, *food)
+                else:
+                    nc, nr = self._random_move(grid)
             else:
                 nc, nr = self._random_move(grid)
 

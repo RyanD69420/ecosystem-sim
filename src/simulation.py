@@ -35,6 +35,11 @@ class Simulation:
             c, r = land_cells[i]
             self.plants.append(Plant(c, r))
 
+        # Pre-warm plants — let them spread for 80 ticks before animals arrive
+        # so there's a thick carpet of vegetation ready to sustain herbivores
+        for _ in range(80):
+            self._step_plants()
+
         for i in range(config.INITIAL_HERBIVORES):
             c, r = land_cells[config.INITIAL_PLANTS + i]
             self.herbivores.append(Herbivore(c, r))

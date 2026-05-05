@@ -17,7 +17,7 @@ INITIAL_PREDATORS  = 4
 
 # ─── Energy ─────────────────────────────────────────────────────────────────
 PLANT_ENERGY          = 30
-PLANT_SPREAD_CHANCE   = 0.04   # per tick, per plant
+PLANT_SPREAD_CHANCE   = 0.06   # per tick, per plant
 PLANT_REGROW_TICKS    = 15
 
 HERBIVORE_START_ENERGY  = 70

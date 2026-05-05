@@ -12,8 +12,8 @@ CELL_SIZE  = SCREEN_WIDTH // GRID_COLS   # ~12px per cell
 WATER_RATIO      = 0.12   # fraction of tiles that start as water
 ROCK_RATIO       = 0.08
 INITIAL_PLANTS     = 500
-INITIAL_HERBIVORES = 120
-INITIAL_PREDATORS  = 4
+INITIAL_HERBIVORES = 100
+INITIAL_PREDATORS  = 8
 
 # ─── Energy ─────────────────────────────────────────────────────────────────
 PLANT_ENERGY          = 30
@@ -27,13 +27,13 @@ HERBIVORE_EAT_GAIN      = 35
 HERBIVORE_REPRODUCE_AT  = 90
 HERBIVORE_STARVE_AT     = 0
 
-PREDATOR_START_ENERGY   = 50
-PREDATOR_MAX_ENERGY     = 100
-PREDATOR_MOVE_COST      = 4
-PREDATOR_EAT_GAIN       = 35
-PREDATOR_REPRODUCE_AT   = 90
+PREDATOR_START_ENERGY   = 80
+PREDATOR_MAX_ENERGY     = 150
+PREDATOR_MOVE_COST      = 2
+PREDATOR_EAT_GAIN       = 50
+PREDATOR_REPRODUCE_AT   = 120
 PREDATOR_STARVE_AT      = 0
-PREDATOR_MIN_HUNT_POP   = 8    # won't hunt if fewer herbivores than this
+PREDATOR_MIN_HUNT_POP   = 6    # won't hunt if fewer herbivores than this
 
 # ─── Colonizers (Phase 2) ───────────────────────────────────────────────────
 COLONIZER_START_COUNT   = 5

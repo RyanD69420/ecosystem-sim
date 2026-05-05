@@ -33,18 +33,24 @@ class Predator(Entity):
             if h.col == self.col and h.row == self.row:
                 h._die()
                 self.energy = min(self.energy + config.PREDATOR_EAT_GAIN, config.PREDATOR_MAX_ENERGY)
-                self._reproduce_flag = self.energy >= config.PREDATOR_REPRODUCE_AT
+                self._reproduce_flag = (
+                    self.energy >= config.PREDATOR_REPRODUCE_AT and
+                    random.random() < config.PREDATOR_REPRODUCE_CHANCE
+                )
                 return
 
-        # Hunt nearest herbivore
-        target = self._nearest(alive_herbs, radius=8)
+        # Hunt nearest herbivore — wider vision radius so they can find prey
+        target = self._nearest(alive_herbs, radius=14)
         if target:
             nc, nr = self._step_toward(grid, target.col, target.row)
         else:
             nc, nr = self._random_move(grid)
 
         self._move_to(nc, nr, cost=config.PREDATOR_MOVE_COST)
-        self._reproduce_flag = self.energy >= config.PREDATOR_REPRODUCE_AT
+        self._reproduce_flag = (
+            self.energy >= config.PREDATOR_REPRODUCE_AT and
+            random.random() < config.PREDATOR_REPRODUCE_CHANCE
+        )
 
     def wants_to_reproduce(self) -> bool:
         return self._reproduce_flag and self.alive

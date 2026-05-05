@@ -4,12 +4,13 @@ SCREEN_HEIGHT = 768
 FPS           = 30
 
 # ─── Grid ───────────────────────────────────────────────────────────────────
-GRID_COLS = 80
-GRID_ROWS = 60
-CELL_SIZE  = SCREEN_WIDTH // GRID_COLS   # ~12px per cell
+# Cell size chosen so grid fills the window exactly — no padding strips
+CELL_SIZE  = 12
+GRID_COLS  = SCREEN_WIDTH  // CELL_SIZE   # 85 cols = 1020px (4px spare, negligible)
+GRID_ROWS  = SCREEN_HEIGHT // CELL_SIZE   # 64 rows = 768px exact
 
 # ─── World Generation ───────────────────────────────────────────────────────
-WATER_RATIO      = 0.12   # fraction of tiles that start as water
+WATER_RATIO      = 0.12
 ROCK_RATIO       = 0.08
 INITIAL_PLANTS     = 500
 INITIAL_HERBIVORES = 100
@@ -17,26 +18,27 @@ INITIAL_PREDATORS  = 8
 
 # ─── Energy ─────────────────────────────────────────────────────────────────
 PLANT_ENERGY          = 30
-PLANT_SPREAD_CHANCE   = 0.06   # per tick, per plant
+PLANT_SPREAD_CHANCE   = 0.06
 PLANT_REGROW_TICKS    = 15
 
-HERBIVORE_START_ENERGY  = 60
-HERBIVORE_MAX_ENERGY    = 100
-HERBIVORE_MOVE_COST     = 1
-HERBIVORE_EAT_GAIN      = 20
-HERBIVORE_REPRODUCE_AT  = 95
+HERBIVORE_START_ENERGY     = 60
+HERBIVORE_MAX_ENERGY       = 100
+HERBIVORE_MOVE_COST        = 1
+HERBIVORE_EAT_GAIN         = 20
+HERBIVORE_REPRODUCE_AT     = 95
 HERBIVORE_REPRODUCE_CHANCE = 0.3
-HERBIVORE_MAX_POP       = 300
-HERBIVORE_CROWD_THRESHOLD = 4   # neighbours within radius-2 before stress kicks in
-HERBIVORE_STARVE_AT     = 0
+HERBIVORE_MAX_POP          = 300
+HERBIVORE_CROWD_THRESHOLD  = 4
+HERBIVORE_STARVE_AT        = 0
 
-PREDATOR_START_ENERGY   = 80
-PREDATOR_MAX_ENERGY     = 150
-PREDATOR_MOVE_COST      = 2
-PREDATOR_EAT_GAIN       = 50
-PREDATOR_REPRODUCE_AT   = 120
+PREDATOR_START_ENERGY   = 100    # beefier start so they survive early lean times
+PREDATOR_MAX_ENERGY     = 200    # higher ceiling means longer between meals
+PREDATOR_MOVE_COST      = 1      # cheaper movement so they can actually chase
+PREDATOR_EAT_GAIN       = 70     # bigger meal reward
+PREDATOR_REPRODUCE_AT   = 150    # reachable with a couple of good hunts
+PREDATOR_REPRODUCE_CHANCE = 0.5  # chance roll so they don't instantly double
 PREDATOR_STARVE_AT      = 0
-PREDATOR_MIN_HUNT_POP   = 6    # won't hunt if fewer herbivores than this
+PREDATOR_MIN_HUNT_POP   = 6      # backs off if prey critically low
 
 # ─── Colonizers (Phase 2) ───────────────────────────────────────────────────
 COLONIZER_START_COUNT   = 5

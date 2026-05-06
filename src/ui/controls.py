@@ -115,7 +115,7 @@ class ControlBar:
         Slider("🔴 Vision",        "PREDATOR_MIN_HUNT_POP",      0,    20,   ".0f", 1),
         Slider("🔴 Move cost",     "PREDATOR_MOVE_COST",         1,    5,    ".0f", 1),
         # Plants
-        Slider("🌿 Spread",        "PLANT_SPREAD_CHANCE",        0.01, 0.15, ".2f"),
+        Slider("🌿 Spread",        "PLANT_SPREAD_CHANCE",        0.01, 0.30, ".2f"),
     ]
 
     def __init__(self, screen: pygame.Surface):

@@ -11,6 +11,7 @@ import pygame
 from src.world.grid import Grid
 from src.ui.renderer import Renderer
 from src.ui.hud import HUD
+from src.ui.controls import ControlBar
 from src.simulation import Simulation
 import config
 
@@ -24,6 +25,7 @@ def main():
     simulation = Simulation(grid)
     renderer = Renderer(screen, grid)
     hud = HUD(screen, simulation)
+    controls = ControlBar(screen)
 
     simulation.seed_world()
 
@@ -34,6 +36,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            controls.handle_event(event)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     paused = not paused
@@ -46,7 +49,6 @@ def main():
                     hud = HUD(screen, simulation)
                     simulation.seed_world()
                     paused = False
-                # Phase 2: spawn colonizers with 'C'
                 if event.key == pygame.K_c:
                     simulation.spawn_colonizers()
 
@@ -56,6 +58,7 @@ def main():
         renderer.draw()
         renderer.draw_entities(simulation)
         hud.draw(paused)
+        controls.draw()
         pygame.display.flip()
         clock.tick(config.FPS)
 

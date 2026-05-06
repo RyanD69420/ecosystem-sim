@@ -1,13 +1,14 @@
 # ─── Display ────────────────────────────────────────────────────────────────
-SCREEN_WIDTH  = 1024
-SCREEN_HEIGHT = 768
-FPS           = 30
+SCREEN_WIDTH   = 1024
+SCREEN_HEIGHT  = 768
+CONTROL_BAR_H  = 110           # height reserved for bottom control bar
+SIM_HEIGHT     = SCREEN_HEIGHT - CONTROL_BAR_H   # 658px for the sim world
+FPS            = 30
 
 # ─── Grid ───────────────────────────────────────────────────────────────────
-# Cell size chosen so grid fills the window exactly — no padding strips
 CELL_SIZE  = 12
-GRID_COLS  = SCREEN_WIDTH  // CELL_SIZE   # 85 cols = 1020px (4px spare, negligible)
-GRID_ROWS  = SCREEN_HEIGHT // CELL_SIZE   # 64 rows = 768px exact
+GRID_COLS  = SCREEN_WIDTH // CELL_SIZE    # 85 cols
+GRID_ROWS  = SIM_HEIGHT   // CELL_SIZE    # 54 rows
 
 # ─── World Generation ───────────────────────────────────────────────────────
 WATER_RATIO      = 0.12
